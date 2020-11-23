@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Tracker",
+    "description": "This extension continuously monitors the web page to check if it contains the required text!",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "window.html"
+    },
+    "permissions":["storage", "activeTab", "notifications"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "web_accessible_resources": [
+      "tone.mp3","timeout.mp3", "Poppins-Bold.ttf", "Poppins-Medium.ttf"
+  ]
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.min.js"></script>
+    <style>
+
+        .holder{
+            display: flex;
+            flex-shrink: 0;
+            height: 100%;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        body{
+            height: 25rem;
+            width: 20rem;
+        }
+
+        #tab-holder{
+            height: 12rem;
+            width: 100%;
+            display: block;
+            background-color: #f9f9f9;
+            margin-bottom: 1rem;
+            border: 1px solid #d9d9d9;
+            overflow-y: scroll;
+            padding: 0.5rem;
+        }
+
+        .tab-row{
+            height:2rem;
+            width: 18rem;
+            margin-left: 0.75rem;
+            background-color: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-family: Poppins-Regular;
+            font-size: 1rem;
+            font-weight: 100;
+            margin-top: 0.7rem;
+            margin-bottom: none;
+            border-left: 7px solid #555A9A;
+            border-right: 1px solid #d9d9d9;
+            border-top: 1px solid #d9d9d9;
+            border-bottom: 1px solid #d9d9d9;
+            box-shadow: 1px 1px 5px #d9d9d9;
+            overflow: hidden;
+            user-select: none;
+            color: "#333333"
+        }
+
+        .tab-row:hover{
+            box-shadow: 1px 1px 5px #999999;
+        }
+
+        .logo{
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+
+        .title-holder{
+            height: 3rem;
+            width: 90%;
+            display: flex;
+            flex-shrink: 0;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-text{
+            font-family: Poppins-Bold;
+            font-size: 1.5rem;
+            display: flex;
+            flex-shrink: 0;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-left: 0.6rem;
+            color: #333333
+        }
+
+        @font-face {font-family: Poppins-Medium; src: url(./Poppins-Medium.ttf);}
+        @font-face {font-family: Poppins-Regular; src: url(./Poppins-Regular.ttf);}
+        @font-face {font-family: Poppins-Bold; src: url(./Poppins-Bold.ttf);}
+
+        .form-holder{
+            height: 6rem;
+            width: 90%;
+            display: flex;
+            flex-shrink: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .label{
+            font-family: Poppins-Regular;
+            font-size: 0.8rem;
+            margin-right: 0.6rem;
+        }
+
+        .regex-input{
+            font-family: Poppins-Medium;
+            font-size: 0.7rem;
+            height: 0.8rem;
+            width: 11rem;
+            color: #555A9A;
+        }
+
+        .checkbox{
+            height: 1rem;
+            width: 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid #333333;
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .checkbox-inner-box{
+            height: 100%;
+            width: 100%;
+            background-color: #333333;
+            display: flex;
+            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            user-select: none;
+        }
+
+        .number{
+            height: 0.8rem;
+            width: 2rem;
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+            margin-bottom: 0.2rem;
+            font-family: Poppins-Medium;
+            font-size: 0.7rem;
+            color: #555A9A;
+        }
+    </style>
+    <script src="window.js"></script>
+  </head>
+  <body>
+    
+    <div class="holder">
+        <div class="title-holder">
+            <img class="logo" src="icon.png"/>
+            <span class="title-text">Tracker</span>
+        </div>
+        
+        <div id="tab-holder">
+        </div>
+
+        <div class="form-holder">
+            <div style="margin-left:1rem; margin-top:0.4rem; display: flex; flex-shrink: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start;">
+                <div style="margin-bottom: 0.8rem; display: flex; flex-shrink: 0; justify-content: flex-start; align-items: center;">
+                    <span class="label">RegEx</span>
+                    <input type="text" class="regex-input" id="regex-pattern"/>
+                </div>
+
+                <div style="margin-bottom: 0.8rem; display: flex; flex-shrink: 0; flex-direction: row; justify-content: flex-start; align-items: flex-start;">
+                    <div style="display: flex; flex-shrink: 0; justify-content: flex-start; align-items: center;">
+                        <span class="label">Refresh</span>
+                        <div class="checkbox" id="do-refresh-holder">
+                            <div id="do-refresh" class="checkbox-inner-box">&#10004</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-shrink: 0; justify-content: flex-start; align-items: center;">
+                        <span class="label">Lowercase</span>
+                        <div class="checkbox" id="to-lowercase-holder">
+                            <div id="to-lowercase" class="checkbox-inner-box">&#10004</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="margin-bottom: 0.8rem; display: flex; flex-shrink: 0; flex-direction: row; justify-content: flex-start; align-items: flex-start;">
+                    <div style="display: flex; flex-shrink: 0; justify-content: flex-start; align-items: center;">
+                        <span class="label">Timer</span>
+                        <input class="number" type="number" id="timer"/>
+                    </div>
+
+                    <div style="display: flex; flex-shrink: 0; justify-content: flex-start; align-items: center;">
+                        <span class="label">Refresh Rate</span>
+                        <input class="number" type="number" id="refresh-rate"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>
