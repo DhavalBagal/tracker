@@ -36,4 +36,4 @@ If the text becomes available on the web page, the system will give a voice aler
 
 #### DISCLAIMER
 
-Please test the extension first before using since it hasn't gone through a rigorous testing.
+Please test the extension first before using since it hasn't been rigorously tested.
